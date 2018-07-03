@@ -80,59 +80,43 @@ function power($val, $pow)
 
 <?php
 
-function showHourText($hour)
+function makeText($val, $one, $two, $five)
 {
-    $firstDigit = intval($hour[0]);
-    $lastDigit = intval($hour[1]);
-
-    if ($firstDigit !== 1 && $lastDigit >= 2 && $lastDigit <= 4) {
-        return "часа";
-    } elseif ($firstDigit === 1 || $lastDigit === 0 || $lastDigit >= 5) {
-        return "часов";
+    if ($val > 20) {
+        $val %= 10;
+    }
+    if ($val >= 2 && $val <= 4) {
+        return $two;
+    } elseif ($val === 1) {
+        return $one;
     } else {
-        return "час";
+        return $five;
     }
 };
 
-function showMinutesText($minutes)
-{
-    $firstDigit = intval($minutes[0]);
-    $lastDigit = intval($minutes[1]);
-
-    if ($firstDigit !== 1 && $lastDigit >= 2 && $lastDigit <= 4) {
-        return "минуты";
-    } elseif ($firstDigit === 1 || $lastDigit === 0 || $lastDigit >= 5) {
-        return "минут";
-    } else {
-        return "минута";
-    }
-};
-
-function getTimeText($timeStamp = null)
+function getLitText($timeStamp = null)
 {
     if ($timeStamp === null) {
         $timeStamp = time();
-        $hour = date("H", $timeStamp);
-        $minutes = date("i", $timeStamp);
-    } else {
-        $hour = substr($timeStamp, 0, 2);
-        $minutes = substr($timeStamp, 3, 2);
     }
-    $hourText = showHourText($hour);
-    $minutesText = showMinutesText($minutes);
+    $hour = date("H", $timeStamp);
+    $minutes = date("i", $timeStamp);
+    $hourText = makeText($hour, "час", "часа", "часов");
+    $minutesText = makeText($minutes, "минута", "минуты", "минут");
+
     return "{$hour} {$hourText} {$minutes} {$minutesText}";
 }
 
 ?>
-<p><b style='color:red'>Сейчас</b>: <?=getTimeText()?></p>
-<p>Если в параметре строка "00:09": <?=getTimeText("00:00")?></p>
-<p>Если в параметре строка "01:01": <?=getTimeText("01:01")?></p>
-<p>Если в параметре строка "01:01": <?=getTimeText("02:02")?></p>
-<p>Если в параметре строка "01:01": <?=getTimeText("06:06")?></p>
-<p>Если в параметре строка "11:11": <?=getTimeText("11:11")?></p>
-<p>Если в параметре строка "12:12": <?=getTimeText("12:12")?></p>
-<p>Если в параметре строка "16:16": <?=getTimeText("16:16")?></p>
-<p>Если в параметре строка "20:20": <?=getTimeText("20:20")?></p>
-<p>Если в параметре строка "21:21": <?=getTimeText("21:21")?></p>
-<p>Если в параметре строка "21:21": <?=getTimeText("22:22")?></p>
+<p><b style='color:red'>Сейчас</b>: <?=getLitText()?></p>
+<p>Если в параметре строка "00:00": <?=getLitText(mktime(00, 00))?></p>
+<p>Если в параметре строка "01:01": <?=getLitText(mktime(01, 01))?></p>
+<p>Если в параметре строка "02:02": <?=getLitText(mktime(02, 02))?></p>
+<p>Если в параметре строка "06:06": <?=getLitText(mktime(06, 06))?></p>
+<p>Если в параметре строка "11:11": <?=getLitText(mktime(11, 11))?></p>
+<p>Если в параметре строка "12:12": <?=getLitText(mktime(12, 12))?></p>
+<p>Если в параметре строка "16:16": <?=getLitText(mktime(16, 16))?></p>
+<p>Если в параметре строка "20:20": <?=getLitText(mktime(20, 20))?></p>
+<p>Если в параметре строка "21:21": <?=getLitText(mktime(21, 21))?></p>
+<p>Если в параметре строка "21:21": <?=getLitText(mktime(22, 22))?></p>
 <hr>
