@@ -36,38 +36,52 @@ $arr = [
     'Рязанская область' => ['Касимов', 'Рязань', 'Сасово', 'Скопин'],
 ];
 
-function isItLast(&$index, $length)
+function filterInput(&$res, &$anotherValue, &$input)
 {
-    if (++$index === $length) {
-        return true;
+    //сделали значение такой же длины как и буквы для фильтрации
+    $str = substr($anotherValue, 0, strlen($input));
+    //привели значение к нижнему регистру спец конструкцией для кириллицы
+    $str = mb_convert_case($str, MB_CASE_LOWER, "UTF-8");
+    if ($str === $input) {
+        //если значение равно эталону то записываем результат
+        return $anotherValue;
     }
 }
 
-function handleArray(&$value)
+function handleArray(&$res, $value, &$input)
 {
     $numItems = count($value);
     $i = 0;
+    $arrTmp = array();
     foreach ($value as $anotherKey => $anotherValue) {
-        echo "{$anotherValue}";
+        $filtered = filterInput($res, $anotherValue, $input);
         //если не последний элемент, то поставить после него запятую
-        if (!isItLast($i, $numItems)) {
-            echo ", ";
+        if ($filtered !== null) {
+            array_push($arrTmp, $filtered);
         }
     }
-    echo "</br>";
+    unset($i);
+    // var_dump($arrTmp);
+    //склеим массивы и добавим их в переменную результата
+    $res .= join(", ", $arrTmp);
+    //а после добавим перенос строки
+    $res .= "</br>";
+    return $res;
 }
 
-function showCities($arr, $letter = null)
+function showCities($arr, $input = null)
 {
+    $res = "";
     foreach ($arr as $key => $value) {
-        echo "{$key}: </br>";
+        $res .= "{$key}: </br>";
         if (is_array($value)) {
-            handleArray($value);
+            handleArray($res, $value, $input);
         }
     }
+    return $res;
 }
-showCities($arr, "к");
-// unset($arr);
+
+echo showCities($arr, "");
 echo "<hr><br>";
 
 echo "4. Написать функцию транслитерации строк: </br></br>";
@@ -140,7 +154,8 @@ $ruleRuEng = [
     'я' => 'ya',
 ];
 
-function translit($string, $translitRule) {
+function translit($string, $translitRule)
+{
     return strtr($string, $translitRule);
 }
 echo translit("Когда в доме тепло, ящерицы ягоды, Цапли объединяться!", $ruleRuEng);
@@ -157,12 +172,12 @@ echo "<hr><br>";
 
 echo "7. *Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла";
 echo "<br>";
-for($i = 0; $i < 10; print $i, $i++) {
-        // здесь пусто
+for ($i = 0; $i < 10;print $i, $i++) {
+    // здесь пусто
 }
 unset($i);
 echo "<br>";
-for($i = 0; $i < 10; print $i++) {
+for ($i = 0; $i < 10;print $i++) {
     // здесь пусто
 }
 unset($i);
@@ -170,4 +185,16 @@ unset($i);
 echo "<hr><br>";
 echo "8. *Повторить третье задание, но вывести на экран только города, начинающиеся с буквы «К».";
 echo "<br><br>";
-showCities($arr, "к");
+echo showCities($arr, "к");
+
+echo "<hr><br>";
+echo "9. *Конструировании url-адресов на основе названия статьи в блогах";
+echo "<br><br>";
+
+function getUrl($str, $ruleRuEng) {
+    $str = translit($str, $ruleRuEng);
+    $str = change(" ", "_", $str);
+    return $str;
+}
+
+echo getUrl("Московские квартиры оборудованы потайным ходом в метро.", $ruleRuEng);
