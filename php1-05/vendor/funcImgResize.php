@@ -57,20 +57,3 @@ function img_resize($src, $dest, $width, $height, $rgb = 0xFFFFFF, $quality = 10
     return true;
 }
 
-function renderGallery()
-{
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      if (isset($_FILES['file'])) {
-          $uploadFile = $_FILES['file'];
-          if ($uploadFile['size'] >= 200000) {
-              echo "<h1 style='color:red'>Размер файла превышает 200кб.</h1>";
-          } elseif ($uploadFile['type'] !== 'image/jpeg') {
-              echo "<h1 style='color:red'>Тип файла должен быть jpg, jpeg, png.</h1>";
-          } else {
-              move_uploaded_file(
-                  $uploadFile['tmp_name'], UPLOADS_DIR . $uploadFile['name']
-              );
-          }
-      }
-  }
-}
