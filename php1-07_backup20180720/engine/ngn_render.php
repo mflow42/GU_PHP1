@@ -1,16 +1,19 @@
 <?php
 
-function getComments($conn) {
+function getComments($conn)
+{
     $getComments = mysqli_query($conn, "SELECT * FROM comments ORDER BY id ASC");
     return $getComments;
 }
 
-function getFilesFromDB($conn) {
+function getFilesFromDB($conn)
+{
     $filesFromDB = mysqli_query($conn, "SELECT * FROM images ORDER BY visitedCount DESC");
     return $filesFromDB;
 }
 
-function uploadFileToFolder($uploadName, $destination, $callback = null) {
+function uploadFileToFolder($uploadName, $destination, $callback = null)
+{
     $destinationFile = false;
     if (isset($_FILES[$uploadName])) {
         $uploadFile = $_FILES[$uploadName];
@@ -20,44 +23,45 @@ function uploadFileToFolder($uploadName, $destination, $callback = null) {
         } elseif ($uploadFile['type'] != 'image/jpeg') {
             echo "<h1 style='color:red'>Тип файла должен быть jpg, jpeg, png.</h1>";
         } else {
-            move_uploaded_file($uploadFile['tmp_name'], $destinationFile);
-//            if ($callback) {
-//                $callback($destination, $uploadFile['name']);
-//            }
+            move_uploaded_file(
+                $uploadFile['tmp_name'], $destinationFile
+            );
+            if ($callback) {
+                $callback($destination, $uploadFile['name']);
+            }
         }
     }
     return $destinationFile;
 }
 
-function uploadFileToDB($conn, $uploadName) {
+function uploadFileToDB($conn, $uploadName)
+{
     $uploadFile = $_FILES[$uploadName];
     $uploadFileName = $uploadFile['name'];
     //апдейтим базу данных
-    mysqli_query($conn,
-                 "INSERT INTO images (`name`, `pathToNormal`, `pathToThumbnail`, `size`, `visitedCount`) VALUES ('{$uploadFileName}', '/img/normal/{$uploadFileName}', '/img/thumbnail/{$uploadFileName}', '{$uploadFile['size']}', '0')"
-    );
+    mysqli_query($conn, "INSERT INTO images (`name`, `pathToNormal`, `pathToThumbnail`, `size`, `visitedCount`) VALUES ('{$uploadFileName}', '/img/normal/{$uploadFileName}', '/img/thumbnail/{$uploadFileName}', '{$uploadFile['size']}', '0')");
     //перезагружаем страницу
 //    redirect('/');
 }
 
 
-function displayHello() {
+function displayHello(){
     echo "hello, World!";
 }
 
-function render($template, array $params = [], $useLayout = true) {
+function render($template, array $params = [], $useLayout = true){
     $content = renderTemplate($template, $params);
-    if ($useLayout) {
-        $content = renderTemplate('layouts/tpl_main', ['content' => $content]);
+    if($useLayout){
+        $content = renderTemplate('layouts/main', ['content' => $content]);
     }
     return $content;
 }
 
 
-function renderTemplate($template, array $params = []) {
+function renderTemplate($template, array $params = []){
     extract($params);
     ob_start();
-    include TEMPLATES_DIR . $template . ".php";
+    include TEMPLATES_DIR . $template . ".php" ;
     return ob_get_clean();
 }
 

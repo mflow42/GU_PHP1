@@ -7,5 +7,5 @@ define("TEMPLATES_DIR", ROOT_DIR . "../templates/");
 define("UPLOADS_DIR", ROOT_DIR . "img/");
 define("UPLOADS_NORM_DIR", UPLOADS_DIR . "normal/");
 define("UPLOADS_MIN_DIR", UPLOADS_DIR . "thumbnails/");
-define("PRODUCTS_DIR", UPLOADS_DIR . "products/");
+define("GOODS_DIR", UPLOADS_DIR . "goods/");
 ?>

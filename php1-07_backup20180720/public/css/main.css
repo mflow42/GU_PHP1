@@ -50,16 +50,7 @@
     border: 1px solid gray;
 }
 
-
-.catalogue {
-    width: 1140px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around;
-}
-.catalogue__card-wrapper {
+.catalog-preview {
+    display: inline-block;
     border: 1px solid black;
-    margin: 10px;
-}
-.catalogue__card-content {
 }
