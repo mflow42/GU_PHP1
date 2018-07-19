@@ -1,0 +1,4 @@
+INSERT INTO `php1-lesson6`.goods (id, name, description, imgPath, rating, price) VALUES (1, 'blaze leggins', 'blaze leggins', 'img/Layer44.jpg', 5, 52);
+INSERT INTO `php1-lesson6`.goods (id, name, description, imgPath, rating, price) VALUES (2, 'alexa sweater', 'alexa sweater', 'img/Layer45.jpg', 3, 56);
+INSERT INTO `php1-lesson6`.goods (id, name, description, imgPath, rating, price) VALUES (3, 'agnes top', 'agnes top', 'img/Layer46.jpg', 4, 75);
+INSERT INTO `php1-lesson6`.goods (id, name, description, imgPath, rating, price) VALUES (4, 'sylva sweater', 'sylva sweater', 'img/Layer47.jpg', 2, 140);

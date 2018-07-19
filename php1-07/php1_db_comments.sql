@@ -1,0 +1,2 @@
+INSERT INTO `php1-db`.comments (id, name, content, approved) VALUES (14, 'Анатолий', 'Здравствуйте, меня зовут Анатолий, я бы хотел узнать, можно ли у вас купить пряжу, или я не в тот магазин пришел?', 0);
+INSERT INTO `php1-db`.comments (id, name, content, approved) VALUES (15, 'Василий', 'Если бы не Ваш сайт, то я бы не узнал что значит "криворукий погромист".', 0);
