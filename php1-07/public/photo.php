@@ -1,7 +1,7 @@
 <?php
 
-include __DIR__ . "/../config/main.php";
-include ENGINE_DIR . 'render.php';
+include __DIR__ . "/../config/cfg_main.php";
+include ENGINE_DIR . 'ngn_render.php';
 include ENGINE_DIR . "kint.php";
 
 $conn = getConnection();
@@ -16,9 +16,9 @@ if ($id = $_GET['id']) {
     $oneImageVisitedNumber = $oneImage['visitedCount'];
     $oneImageVisitedNumber++;
     mysqli_query($conn, "UPDATE `images` SET `visitedCount`={$oneImageVisitedNumber} WHERE `id`={$id}");
-    include TEMPLATES_DIR . 'photo.php';
+    include TEMPLATES_DIR . 'tpl_photo.php';
 } else {
-    include TEMPLATES_DIR . 'photo-error.php';
+    include TEMPLATES_DIR . 'tpl_photo-error.php';
 }
 
 
