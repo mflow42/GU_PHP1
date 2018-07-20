@@ -13,9 +13,9 @@ $userId = $_SESSION['user_id'] ?? null;
 
 if ($user = getUserById($userId)) {
 //    $products = getAllProducts();
-    redirect('/tpl_account');
+    redirect('/account.php');
 } else {
-    redirect('/tpl_login.php');
+    redirect('/login.php');
 }
 
 ?>
