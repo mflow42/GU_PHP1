@@ -12,10 +12,10 @@ session_start();
 $userId = $_SESSION['user_id'] ?? null;
 
 if ($user = getUserById($userId)) {
-    $products = getAllProducts();
-    echo render('tpl_catalogue', ['products' => $products]);
+//    $products = getAllProducts();
+    redirect('/tpl_account');
 } else {
-    redirect('/login.php');
+    redirect('/tpl_login.php');
 }
 
 ?>

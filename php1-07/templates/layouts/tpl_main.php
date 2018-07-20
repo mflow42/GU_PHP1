@@ -12,7 +12,7 @@
 <body>
 Это хедер с меню
 <br>
-<a href="/index.php">Главная</a>
+<a href="/catalogue.php">В каталог</a>
 <br>
 <a href="/cart.php">Корзина</a>
 <?=$content?>

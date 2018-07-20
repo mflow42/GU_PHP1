@@ -13,6 +13,8 @@ include_once ENGINE_DIR . 'ngn_db.php';
 include_once ENGINE_DIR . 'ngn_products.php';
 include_once ENGINE_DIR . 'ngn_route.php';
 
+session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $productId = $_POST['id'];
     $productQty = $_POST['qty'] ?: 0;
