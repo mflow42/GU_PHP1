@@ -1,5 +1,5 @@
-<a href="/">Назад</a>
+<a href="/index.php">Назад</a>
 <div class="photo">
-    <img src="<?=$oneImageUrl?>" alt="<?=$oneImageName?>" class="photo__img">
-    <div class="photo__description">Количество просмотров: <?=$oneImageVisitedNumber?></div>
+    <img src="<?=$path?>" alt="<?=$name?>" class="photo__img">
+    <div class="photo__description">Количество просмотров: <?=$visitedCount?></div>
 </div>

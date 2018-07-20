@@ -10,8 +10,12 @@
 </head>
 
 <body>
-
+Это хедер с меню
+<br>
+<a href="/index.php">Главная</a>
+<br>
+<a href="/cart.php">Корзина</a>
 <?=$content?>
-
+Это футер
 </body>
 </html>
