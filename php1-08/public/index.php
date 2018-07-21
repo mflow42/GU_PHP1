@@ -5,9 +5,10 @@ include ENGINE_DIR . 'ngn_autoload.php';
 
 session_start();
 
-if ($path = preg_replace(['#^/#'], '#[?].*#', $_SERVER['REQUEST_URI'])) {
+if (!$path = preg_replace(['#^/#', '#[?].*#'],"", $_SERVER['REQUEST_URI'])) {
     $path = 'product';
 }
+
 $parts = explode('/', $path);
 $controller = $parts[0];
 $action = $parts[1] ?? 'index';

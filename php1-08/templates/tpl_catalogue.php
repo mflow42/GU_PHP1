@@ -15,7 +15,7 @@
                     </div>
                 </a>
             </div>
-            <form action="add_to_cart" method="post">
+            <form action="cart/add_to_cart" method="post">
 
                 <div class="catalogue__inputs">
                     <input type="hidden" name="id" value="<?=$product['id']?>">

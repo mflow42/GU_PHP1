@@ -14,5 +14,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $_SESSION['basket'][$productId] = (int) $productQty;
     }
-    redirect($_SERVER['HTTP_REFERER']);
+//    redirect($_SERVER['HTTP_REFERER']);
+    echo json_encode(['success'=>'ok', 'message'=>'Товар добавлен в корзину']);
 }
