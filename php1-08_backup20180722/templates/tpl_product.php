@@ -1,6 +1,6 @@
 <br>
 <br>
-<a href="/">Назад</a>
+<a href="/index">Назад</a>
 <br>
 <br>
 <img src="<?=$product['imgPath']?>" alt="">

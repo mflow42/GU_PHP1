@@ -18,4 +18,22 @@ if (!empty($_SESSION['basket'])) {
     }
 }
 
+//if ($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['upload'] == 'comment') {
+//    $name = $_POST['name'];
+//    $content = $_POST['content'];
+//    execute("INSERT INTO comments (name, content) VALUES ('{$name}', '{$content}')");
+//}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//    $productId = $_POST['id'];
+//    $productQty = $_POST['qty'] ?: 0;
+//
+//    if (isset($_SESSION['basket'])) {
+//        $_SESSION['basket'][$productId] += (int) $productQty;
+//    } else {
+//        $_SESSION['basket'][$productId] = (int) $productQty;
+//    }
+////    redirect($_SERVER['HTTP_REFERER']);
+//    echo json_encode(['success'=>'ok', 'message'=>'Товар добавлен в корзину']);
+}
+
 echo render('tpl_cart', ['basket' => $basket]);
