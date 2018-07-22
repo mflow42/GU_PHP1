@@ -23,6 +23,6 @@ function getLastOrder($userId) {
 }
 
 function getFullOrderInfo($orderId) {
-    return queryAll("SELECT * FROM orders, products WHERE order_id = '{$orderId}' AND product = products.id");
+    return queryAll("SELECT * FROM orders, products WHERE order_id = '{$orderId}' AND orders.product = products.id");
 }
 

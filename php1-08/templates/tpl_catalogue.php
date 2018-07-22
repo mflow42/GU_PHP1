@@ -1,7 +1,5 @@
 <br>
-<br>
 <a href="/">Назад</a><br>
-<br>
 <div class="catalogue">
     <?php foreach ($products as $product): ?>
         <div class="catalogue__card">
@@ -22,9 +20,20 @@
                     <input type="submit" value="Добавить в корзину">
                 </div>
             </form>
+            <a href="/product/remove?id=<?=$product['id']?>"><button>Удалить товар</button></a>
         </div>
     <?php endforeach; ?>
 </div>
-<br>
-<br>
-
+<!--разметка для формы загрузки картинок-->
+<div class="gallery-upload">
+    <h1>Модуль создания товара</h1>
+    <form class="gallery__form" action="product/add" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="upload" value="image"/><br>
+        <input type="text" name="name" id="" placeholder="Введите название"><label for="name"> Наименование товара</label>
+        <br><input type="text" name="price" id="" placeholder="Введите цену"><label for="price"> Цена товара</label><br>
+        <textarea name="description" rows="10" cols="40" id="" placeholder="Введите описание"></textarea><label for="description"> Описание товара</label><br>
+        <label for="image">Добавить фотографию товара: </label><br>
+        <input type="file" name="image" id=""><br><br>
+        <input type="submit" value="Создать товар">
+    </form>
+</div>

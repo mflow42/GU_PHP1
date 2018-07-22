@@ -36,11 +36,11 @@
 }
 
 .catalogue {
-    width: 1140px;
+    max-width: 1140px;
     margin: 10px;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .catalogue__card-wrapper {
@@ -48,7 +48,9 @@
     margin: 10px;
     transition: transform 0.1s ease-in-out, filter 0.1s ease-in-out;
     cursor: pointer;
-    height: 100%;
+    height: 490px;
+    /*max-height: 490px;*/
+    max-width: 280px;
 }
 
 .catalogue__card-wrapper:hover {

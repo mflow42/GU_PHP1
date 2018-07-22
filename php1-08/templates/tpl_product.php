@@ -3,10 +3,13 @@
 <a href="/">Назад</a>
 <br>
 <br>
-<img src="<?=$product['imgPath']?>" alt="">
-<h1><?=$product['name']?></h1>
-<p><?=$product['description']?></p>
-
+<!--<div class="catalogue__card">-->
+<!--    <div class="catalogue__card-wrapper">-->
+        <img src="<?=$product['imgPath']?>" alt="">
+        <h1><?=$product['name']?></h1>
+        <p><?=$product['description']?></p>
+<!--    </div>-->
+<!--</div>-->
 <!--<form action="basket/add_to_cart" method="post">-->
 <!--    <input type="hidden" name="id" value="--><? //=$product['id']?><!--">-->
 <!--    <input type="text" name="qty">-->

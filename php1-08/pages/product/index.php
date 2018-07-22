@@ -6,4 +6,5 @@
  * Time: 3:15
  */
 $products = getAllProducts();
+
 echo render('tpl_catalogue', ['products' => $products]);

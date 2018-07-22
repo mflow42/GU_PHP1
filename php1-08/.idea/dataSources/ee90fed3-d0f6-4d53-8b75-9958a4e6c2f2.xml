@@ -1066,6 +1066,7 @@
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
+      <DefaultExpression>&apos;6&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="259" parent="232" name="price">
@@ -1074,27 +1075,36 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="260" parent="232" name="PRIMARY">
+    <index id="260" parent="232" name="products_imgPath_uindex">
+      <ColNames>imgPath</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="261" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="261" parent="233" name="id">
+    <key id="262" parent="232" name="products_imgPath_uindex">
+      <ColNames>imgPath</ColNames>
+      <UnderlyingIndexName>products_imgPath_uindex</UnderlyingIndexName>
+    </key>
+    <column id="263" parent="233" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="233" name="login">
+    <column id="264" parent="233" name="login">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="233" name="password">
+    <column id="265" parent="233" name="password">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="233" name="name">
+    <column id="266" parent="233" name="name">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>

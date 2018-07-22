@@ -44,8 +44,8 @@ function uploadFileToDB($conn, $uploadName) {
     mysqli_query($conn,
                  "INSERT INTO images (`name`, `pathToNormal`, `pathToThumbnail`, `size`, `visitedCount`) VALUES ('{$uploadFileName}', '/img/normal/{$uploadFileName}', '/img/thumbnail/{$uploadFileName}', '{$uploadFile['size']}', '0')"
     );
-    //перезагружаем страницу
-//    redirect('/');
+//    перезагружаем страницу
+    redirect('/');
 }
 
 

@@ -24,20 +24,20 @@
             </div>
             Количество товара: <?=$product['qty']?>
 
-            <form action="order/change_product_qty" method="post">
-                <div class="catalogue__inputs">
-                    <input type="hidden" name="id" value="<?=$product['id']?>">
-                    <input type="text" name="qty" value="<?=$product['qty']?>">
-                    <input type="submit" value="Изменить количество">
-                </div>
-            </form>
-
-            <form action="order/change_product_qty" method="post">
-                <div class="catalogue__inputs">
-                    <input type="hidden" name="id" value="<?=$product['id']?>">
-                    <input type="submit" value="Удалить товар">
-                </div>
-            </form>
+<!--            <form action="order/change_product_qty" method="post">-->
+<!--                <div class="catalogue__inputs">-->
+<!--                    <input type="hidden" name="id" value="--><?//=$product['id']?><!--">-->
+<!--                    <input type="text" name="qty" value="--><?//=$product['qty']?><!--">-->
+<!--                    <input type="submit" value="Изменить количество">-->
+<!--                </div>-->
+<!--            </form>-->
+<!---->
+<!--            <form action="order/change_product_qty" method="post">-->
+<!--                <div class="catalogue__inputs">-->
+<!--                    <input type="hidden" name="id" value="--><?//=$product['id']?><!--">-->
+<!--                    <input type="submit" value="Удалить товар">-->
+<!--                </div>-->
+<!--            </form>-->
         </div>
     <?php endforeach; ?>
 </div>

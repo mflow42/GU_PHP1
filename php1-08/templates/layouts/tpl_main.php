@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Магазин незначо</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/../css/main.css">
     <script src="/script/jq.js"></script>
 </head>
 
